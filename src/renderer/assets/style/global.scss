@@ -1,0 +1,57 @@
+// padding margin 5-25 间隔5 padding，margin间距
+$list1: top right bottom left;
+$list2: t r b l;
+$num: 5;
+@while $num <= 50 {
+    .pd-#{$num}{
+        padding: #{$num}px;
+    }
+
+    .mg-#{$num}{
+        margin: #{$num}px;
+    }
+
+    @each $po in $list1 {
+
+        $index:index($list1, $po);
+
+        .pd#{nth($list2, $index)}-#{$num}, .pd#{nth($list2, $index)}-#{$num}{
+            padding-#{$po}: #{$num}px;
+        }
+
+        .mg#{nth($list2, $index)}-#{$num}, .mg#{nth($list2, $index)}-#{$num}{
+            margin-#{$po}: #{$num}px;
+        }
+    }
+    $num: $num + 5;
+}
+
+// width
+$width: 50;
+@while $width <= 300 {
+    .w-#{$width} {
+        width: #{$width}px;
+    }
+    @if $width > 200 {
+        $width: $width + 20;
+    } @else {
+        $width: $width + 10;
+    }
+}
+
+// 布局
+.flex {
+    display: flex;
+}
+.flex-1 {
+    flex: 1;
+}
+.ai-center{
+    align-items: center;
+}
+.j-c-center {
+    justify-content: center;
+}
+.ta-center {
+    text-align: center;
+}
